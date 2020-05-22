@@ -61,8 +61,10 @@ if (keyCode == imageIndex && simonSays) {
 	//speak("You are correct");
 }
 
-if (keyCode != imageIndex && simonSays=false) {
-	
+if (keyCode != imageIndex && simonSays==false) {
+	score++;
+	JOptionPane.showMessageDialog(null, "You are correct");
+	//speak("You are correct");
 }
 
 
@@ -73,7 +75,7 @@ if (keyCode != imageIndex && simonSays=false) {
 
 		// 20. Increase the value of score
 
-		// 21. Use the speak method to tell the user they were correctb
+		// 21. Use the speak method to tell the user they were correct
 
 JOptionPane.showMessageDialog(null, "You are correct");
 //speak("You are correct");
