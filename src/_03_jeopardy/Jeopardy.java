@@ -35,6 +35,8 @@ public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
 	private JButton thirdButton, fourthButton;
+	private JButton fifthButton;
+	private JButton sixthButton;
 	private JPanel quizPanel;
 	private int score = 0;
 	private JLabel scoreBox = new JLabel("0");
@@ -68,17 +70,28 @@ quizPanel.add(firstButton);
 
 		// 9. Use the secondButton variable to hold a button using the createButton
 		// method
-
+secondButton = createButton("200");
 		// 10. Add the secondButton to the quizPanel
 quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
 firstButton.addActionListener(this);
 secondButton.addActionListener(this);
+thirdButton.addActionListener(this);
+fourthButton.addActionListener(this);
+fifthButton.addActionListener(this);
+sixthButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-		
-		 /*
+thirdButton = createButton("400");
+quizPanel.add(thirdButton);
+fourthButton = createButton("600");
+quizPanel.add(fourthButton);
+fifthButton = createButton("800");
+quizPanel.add(fifthButton);
+sixthButton = createButton("1000");
+quizPanel.add(sixthButton);
+		/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
 		 */		
@@ -101,7 +114,7 @@ button.setText(dollarAmount);
 buttonCount++;
 		// Return your new button instead of the temporary button
 
-		return new JButton("temporary button");
+		return button;
 	}
 
 	public void actionPerformed(ActionEvent e) {
