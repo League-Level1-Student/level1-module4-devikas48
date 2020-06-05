@@ -6,18 +6,25 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class ChuckleClicker {
-	JFrame frame = new JFrame();
-	JButton button  = new JButton();
-	JButton button2 = new JButton();
+	JButton button  = new JButton("Joke");
+	JButton button2 = new JButton("Punchline");
 	JPanel panel = new JPanel();
+	ChuckleClicker chuckleclicker = new ChuckleClicker();
+	
+	
 	
 	public void makeButton() {
 		JOptionPane.showMessageDialog(null, "Make Buttons");
+		JFrame frame = new JFrame();
+		frame.add(button);
+		frame.add(button2);
+		frame.add(panel);
+	
 	}
 	
 	
 public static void main(String[] args) {
-	
+	new ChuckleClicker().makeButton();
 	
 	
 	

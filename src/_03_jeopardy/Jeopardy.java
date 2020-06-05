@@ -74,6 +74,16 @@ secondButton = createButton("200");
 		// 10. Add the secondButton to the quizPanel
 quizPanel.add(secondButton);
 		// 11. Add action listeners to the buttons (2 lines of code)
+thirdButton = createButton("400");
+quizPanel.add(thirdButton);
+fourthButton = createButton("600");
+quizPanel.add(fourthButton);
+fifthButton = createButton("800");
+quizPanel.add(fifthButton);
+sixthButton = createButton("1000");
+quizPanel.add(sixthButton);
+
+
 firstButton.addActionListener(this);
 secondButton.addActionListener(this);
 thirdButton.addActionListener(this);
@@ -83,14 +93,7 @@ sixthButton.addActionListener(this);
 		// 12. Write the code to complete the actionPerformed() method below
 
 		// 13. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-thirdButton = createButton("400");
-quizPanel.add(thirdButton);
-fourthButton = createButton("600");
-quizPanel.add(fourthButton);
-fifthButton = createButton("800");
-quizPanel.add(fifthButton);
-sixthButton = createButton("1000");
-quizPanel.add(sixthButton);
+
 		/*
 		 * [optional] Use the showImage or playSound methods when the user answers a
 		 * question
@@ -151,7 +154,7 @@ buttonPressed.setText("nothing");
 		// Stop the theme music when they have entered their response. Hint: use the sound variable 
 		sound.stop();
 		// If the answer is correct
-if (answer==correctAnswer) {
+if (answer.equals(correctAnswer)) {
 			// Increase the score by the prizeMoney
 prizeMoney++;
 			// Pop up a message to tell the user they were correct
@@ -162,7 +165,7 @@ JOptionPane.showMessageDialog(null, "You are correct");
 			// Decrement the score by the prizeMoney
 prizeMoney--;  
 			// Pop up a message to tell the user they were wrong and give them the correct answer
-JOptionPane.showMessageDialog(null, "You are wrong the correct answer is" +correctAnswer);
+JOptionPane.showMessageDialog(null, "You are wrong the correct answer is " +correctAnswer);
 }
 		// Call the updateScore() method
 updateScore();
