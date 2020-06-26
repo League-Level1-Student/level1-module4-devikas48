@@ -1,5 +1,6 @@
 package _05_typing_tutor;
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.Random;
@@ -55,7 +56,16 @@ public void keyTyped(KeyEvent e) {
 
 @Override
 public void keyPressed(KeyEvent e) {
+	char keyTyped = e.getKeyChar();
 	// TODO Auto-generated method stub
-	
+	System.out.println(keyTyped);
+	if(keyTyped == currentLetter) { 
+		System.out.println("correct");
+		panel.setBackground(Color.green);
+	} else {
+		System.out.println("incorrect");
+		panel.setBackground(Color.red);
+	}
+		
 }
 }
