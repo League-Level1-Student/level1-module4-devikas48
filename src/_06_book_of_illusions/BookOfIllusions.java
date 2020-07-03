@@ -25,6 +25,7 @@ String illusion = ("illusion.jpg");
 String illusion2 = ("illusion2.jpg");
 
 	public void run() {
+
 		// 2. make the frame visible
 		frame.setVisible(true);
 		// 3. set the size of the frame
@@ -45,12 +46,12 @@ String illusion2 = ("illusion2.jpg");
 
 	public void mousePressed(MouseEvent e) {
 		// 11. Print "clicked!" to the console when the mouse is pressed
-		
+		System.out.println("clicked!");
 		// 12. remove everything from the frame that was added earlier
-			frame.removeAll();
+			frame.remove(label);
 		// 13. load a new image like before (this is more than one line of code)
 			label = loadImageFromComputer(illusion2);
-
+			frame.add(label);
 		// 14. pack the frame
 		frame.pack();
 	}
