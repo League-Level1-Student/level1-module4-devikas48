@@ -13,7 +13,7 @@ public class LatestTweet implements ActionListener {
 	JFrame frame = new JFrame();
 	JPanel panel = new JPanel();
 	JButton rightbutton = new JButton();
-	JTextField textfield = new JTextField();
+	JTextField lefttextfield = new JTextField();
 	
 public void run() {
 	frame.setVisible(true);
@@ -21,7 +21,7 @@ public void run() {
 	rightbutton.setText("Search The Twitterverse");
 	rightbutton.addActionListener(this);
 	panel.add(rightbutton);
-	panel.add(textfield);
+	panel.add(lefttextfield);
 	frame.pack();
 }
 	
@@ -43,6 +43,10 @@ public static void main(String[] args) {
 @Override
 public void actionPerformed(ActionEvent e) {
 	// TODO Auto-generated method stub
+	JButton buttonclicked = (JButton) e.getSource();
 	
+	if(rightbutton == buttonclicked) {
+		System.out.println("Tweet, Tweet");
+	}
 }
 }
