@@ -2,25 +2,26 @@ package _11_whack_a_mole;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener {
 JFrame frame =  new JFrame();
 JPanel panel  = new JPanel();
 JButton button  = new JButton();
-
-
+int moleCount = 0;
+int missCount = 0;
+Date date;
 
 
 public void run() {
-	frame.setVisible(true);
-	frame.add(panel);
-	frame.setTitle("Whack a Button for Fame and Glory");
-	frame.setSize(200, 200);
+	date = new Date();
+	
 	
 		Random ran = new Random();
 		int number = ran.nextInt(24);
@@ -31,8 +32,13 @@ public void run() {
 
 
 public void drawButtons(int number) {
+	frame.setVisible(true);
+	frame.add(panel);
+	frame.setTitle("Whack a Button for Fame and Glory");
+	frame.setSize(200, 200);
 	
 	for (int i = 0; i < 24; i++) {
+		
 		JButton button = new JButton();
 		panel.add(button);
 		button.addActionListener(this);
@@ -55,11 +61,28 @@ public void actionPerformed(ActionEvent e) {
 	if(!buttonPressed.getText().equals("mole")) {
 		speak("You did not press the button");
 		frame.dispose();
-		WhackAMole mole = new WhackAMole();
 		Random ran = new Random();
 		int number = ran.nextInt(24);
-		mole.drawButtons(number);
-	}
+		drawButtons(number);
+		missCount++;
+		System.out.println(missCount);
+	} else {
+		moleCount++;
+	} if (moleCount == 10) {
+		endGame(date, 10);
+		System.exit(0);
+	} if (missCount == 1) {
+		JOptionPane.showMessageDialog(null,"You missed");
+	} if (missCount == 2) {
+		JOptionPane.showMessageDialog(null, "The mole was not pressed :(");
+	} if (missCount == 3) {
+		JOptionPane.showMessageDialog(null, "Try again next time");
+	} if (missCount == 4) {
+		JOptionPane.showMessageDialog(null, "Bad luck this time");
+	} if (missCount >= 5) {
+		endGame(date, moleCount);
+		System.exit(0);
+	} 
 		
 	
 	
@@ -82,6 +105,13 @@ static void speak(String words) {
             e.printStackTrace();
         }
     }
+}
+
+private void endGame(Date timeAtStart, int molesWhacked) { 
+    Date timeAtEnd = new Date();
+    JOptionPane.showMessageDialog(null, "Your whack rate is "
+            + ((timeAtEnd.getTime() - timeAtStart.getTime()) / 1000.00 / molesWhacked)
+                  + " moles per second.");
 }
 
 
